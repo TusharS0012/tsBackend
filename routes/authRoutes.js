@@ -1,10 +1,6 @@
 import express from "express";
-const {
-  register,
-  login,
-  getProfile,
-} = require("../controllers/authController");
-const verifyToken = require("../middleware/verifyToken");
+import { register, login, getProfile } from "../controllers/authController";
+import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
