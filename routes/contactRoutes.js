@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 const verifyToken = require("../middleware/verifyToken");
 const { submitContactForm } = require("../controllers/contactController");
 
