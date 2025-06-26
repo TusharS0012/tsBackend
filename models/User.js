@@ -14,19 +14,10 @@ const userSchema = new mongoose.Schema(
       default: "local",
     },
 
-    currentPlan: {
-      type: String,
-      enum: ["free", "essential", "ultimate", "premium"],
-      default: "free",
-    },
-    subscriptionStatus: {
-      type: String,
-      enum: ["active", "cancelled", "expired", "trial"],
-      default: "trial",
-    },
-    subscriptionId: {
+    subscription: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "PlanPurchase",
+      ref: "Subscription",
+      default: null,
     },
   },
   {
@@ -35,5 +26,4 @@ const userSchema = new mongoose.Schema(
 );
 
 const User = mongoose.model("User", userSchema);
-
 export default User;
