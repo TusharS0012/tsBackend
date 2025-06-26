@@ -1,14 +1,22 @@
 import mongoose from "mongoose";
+
 const subscriptionSchema = new mongoose.Schema(
   {
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    planId: { type: mongoose.Schema.Types.ObjectId, ref: "Plan" },
-    status: { type: String, enum: ["active", "cancelled"], default: "active" },
-    startDate: Date,
-    endDate: Date,
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    plan: { type: mongoose.Schema.Types.ObjectId, ref: "Plan", required: true },
+    status: {
+      type: String,
+      enum: ["active", "cancelled", "expired", "trial"],
+      default: "active",
+    },
+    startDate: { type: Date, required: true },
+    endDate: { type: Date, required: true },
+    razorpayPaymentId: { type: String },
+    razorpayOrderId: { type: String },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
-const Subscription = mongoose.model("Subscription", subscriptionSchema);
-export default Subscription;
+export default mongoose.model("Subscription", subscriptionSchema);
