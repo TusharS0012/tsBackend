@@ -1,4 +1,4 @@
-const ContactMessage = require("../models/ContactMessage");
+import ContactMessage from "../models/ContactMessage.js";
 
 export const submitContactForm = async (req, res) => {
   try {

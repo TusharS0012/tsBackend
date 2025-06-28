@@ -1,9 +1,9 @@
 import express from "express";
-const verifyToken = require("../middleware/verifyToken");
-const { submitContactForm } = require("../controllers/contactController");
+import { submitContactForm } from "../controllers/contactController.js";
+import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
-router.post("/", verifyToken ,submitContactForm); 
+router.post("/", verifyToken, submitContactForm);
 
-module.exports = router;
+export default router;

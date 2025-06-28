@@ -38,6 +38,8 @@ try {
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/payment", paymentRoutes); 
+
 
 app.get("/", (req, res) => {
   res.send("API is running...");
