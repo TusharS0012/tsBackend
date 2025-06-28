@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     avatarUrl: { type: String },
+    isBlocked: {type: Boolean, default: false},  // whether the user is able to purchase or blocked by admin 
 
     isEmailVerified: { type: Boolean, default: false },
     loginProvider: {
@@ -15,7 +16,7 @@ const userSchema = new mongoose.Schema(
     },
 
     subscription: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: [mongoose.Schema.Types.ObjectId],   // array of subscriptions 
       ref: "Subscription",
       default: null,
     },
